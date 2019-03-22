@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        td,
+        th {
+            border: 1px solid black;
+        }
+
+        #none {}
+    </style>
+</head>
+
+<body>
+    <table width="100%">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Rotation Period</th>
+                <th>Orbital Period</th>
+                <th>Diameter</th>
+                <th>Climate</th>
+                <th>Gravity</th>
+                <th>Terrain</th>
+                <th>Surface Water</th>
+                <th>Population</th>
+                <th>Created</th>
+                <th>Edited</th>
+
+            </tr>
+        </thead>
+        <tbody id="isi">
+
+        </tbody>
+    </table>
+
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Filter Berdasarkan
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#" onclick="hasil()" id="name" class="klik"> Name</a>
+            <a class="dropdown-item" href="#" onclick="hasil_1()" id="rotation" class="klik"> Rotation Period</a>
+            <a class="dropdown-item" href="#" onclick="hasil_2()">Orbital Period</a>
+            <a class="dropdown-item" href="#" onclick="hasil_3()">Diameter</a>
+            <a class="dropdown-item" href="#" onclick="hasil_4()">Climate</a>
+            <a class="dropdown-item" href="#" onclick="hasil_5()">Gravity</a>
+            <a class="dropdown-item" href="#" onclick="hasil_6()">Terrain</a>
+            <a class="dropdown-item" href="#" onclick="hasil_7()">Surface Water</a>
+            <a class="dropdown-item" href="#" onclick="hasil_8()">Population</a>
+            <a class="dropdown-item" href="#" onclick="hasil_9()">Created</a>
+            <a class="dropdown-item" href="#" onclick="hasil_10()">Edited</a>
+
+        </div>
+    </div>
+    <div id="kk">
+        <table width="30%" class="asdd" id="hapos">
+            <thead id="jenis">
+
+            </thead>
+            <tbody id="hasil">
+
+            </tbody>
+        </table>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <script src="data.js" type="text/javascript"></script>
+    <script>
+        for (var i = 0; i < data.results.length; i++) {
+
+            document.getElementById('isi').innerHTML += "<tr><td>" + data.results[i].name + "</td><td>" + data.results[
+                    i].rotation_period + "</td> <td>" + data.results[i].orbital_period + "</td><td>" + data.results[i]
+                .diameter + "</td><td>" + data.results[i].climate + "</td><td>" + data.results[i].gravity +
+                "</td><td>" + data.results[i].terrain + "</td><td>" + data.results[i].surface_water + "</td><td>" + data
+                .results[i].population + "</td><td>" + data.results[i].created + "</td><td>" + data.results[i].edited +
+                "</td></tr>";
+
+
+        }
+
+
+        var filterData = data.results.map(function (results) {
+            return results.name;
+
+        });
+        var filterData1 = data.results.map(function (results) {
+            return results.rotation_period;
+
+        });
+        var filterData = data.results.map(function (results) {
+            return results.orbital_period;
+
+        });
+        var filterData = data.results.map(function (results) {
+            return results.diameter;
+
+        });
+        var filterData = data.results.map(function (results) {
+            return results.climate;
+
+        });
+        var filterData = data.results.map(function (results) {
+            return results.gravity;
+
+        });
+        var filterData = data.results.map(function (results) {
+            return results.terrain;
+
+        });
+        var filterData = data.results.map(function (results) {
+            return results.surface_water;
+
+        });
+        var filterData = data.results.map(function (results) {
+            return results.population;
+
+        });
+        var filterData = data.results.map(function (results) {
+            return results.created;
+
+        });
+        var filterData = data.results.map(function (results) {
+            return results.edited;
+
+        });
+
+
+
+
+
+        function hasil() {
+            $("#jenis").empty();
+            $("#hasil").empty();
+
+
+            document.getElementById('jenis').innerHTML += "<tr><th>Name</th></tr>";
+
+            for (var i = 0; i < data.results.length; i++) {
+
+
+                document.getElementById('hasil').innerHTML += "<tr><td>" + data.results[i].name + "</td></tr>";
+
+            }
+            //var elem = document
+
+        }
+
+        function hasil_1() {
+            $("#jenis").empty();
+            $("#hasil").empty();
+            document.getElementById('jenis').innerHTML += "<tr><th>Rotation Period</th></tr>";
+
+            for (var i = 0; i < data.results.length; i++) {
+
+                document.getElementById('hasil').innerHTML += "<tbody><tr><td>" + data.results[i].rotation_period +
+                    "</td></tr></tbody>";
+
+            }
+
+        }
+
+        function hasil_2() {
+            $("#jenis").empty();
+            $("#hasil").empty();
+            document.getElementById('jenis').innerHTML += "<tr><th>Orbital Period</th></tr>";
+            for (var i = 0; i < data.results.length; i++) {
+
+
+                document.getElementById('hasil').innerHTML += "<tr><td>" + data.results[i].orbital_period+ "</td></tr>";
+
+            }
+            //var elem = document
+
+        }
+
+        function hasil_3() {
+            $("#jenis").empty();
+            $("#hasil").empty();
+            document.getElementById('jenis').innerHTML += "<tr><th>Diameter</th></tr>";
+            for (var i = 0; i < data.results.length; i++) {
+
+                document.getElementById('hasil').innerHTML += "<tr><td>" + data.results[i].diameter + "</td></tr>";
+
+            }
+            //var elem = document
+
+        }
+
+        function hasil_4() {
+            $("#jenis").empty();
+            $("#hasil").empty();
+            document.getElementById('jenis').innerHTML += "<tr><th>Climate</th></tr>";
+            for (var i = 0; i < data.results.length; i++) {
+
+                document.getElementById('hasil').innerHTML += "<tr><td>" + data.results[i].climate + "</td></tr>";
+
+            }
+            //var elem = document
+
+        }
+
+        function hasil_5() {
+            $("#jenis").empty();
+            $("#hasil").empty();
+            document.getElementById('jenis').innerHTML += "<tr><th>Gravity</th></tr>";
+            for (var i = 0; i < data.results.length; i++) {
+
+                document.getElementById('hasil').innerHTML += "<tr><td>" + data.results[i].gravity + "</td></tr>";
+            }
+
+
+        }
+
+        function hasil_6() {
+            $("#jenis").empty();
+            $("#hasil").empty();
+            document.getElementById('jenis').innerHTML += "<tr><th>Terrain</th></tr>";
+            for (var i = 0; i < data.results.length; i++) {
+
+                document.getElementById('hasil').innerHTML += "<tr><td>" + data.results[i].terrain + "</td></tr>";
+
+            }
+            //var elem = document
+
+        }
+
+        function hasil_7() {
+            $("#jenis").empty();
+            $("#hasil").empty();
+            document.getElementById('jenis').innerHTML += "<tr><th>Surface Water</th></tr>";
+            for (var i = 0; i < data.results.length; i++) {
+
+                document.getElementById('hasil').innerHTML += "<tr><td>" + data.results[i].surface_water + "</td></tr>";
+
+            }
+            //var elem = document
+
+        }
+
+        function hasil_8() {
+            $("#jenis").empty();
+            $("#hasil").empty();
+            document.getElementById('jenis').innerHTML += "<tr><th>Population</th></tr>";
+            for (var i = 0; i < data.results.length; i++) {
+
+                document.getElementById('hasil').innerHTML += "<tr><td>" + data.results[i].population + "</td></tr>";
+
+            }
+            //var elem = document
+
+        }
+
+        function hasil_9() {
+            $("#jenis").empty();
+            $("#hasil").empty();
+            document.getElementById('jenis').innerHTML += "<tr><th>Created</th></tr>";
+            for (var i = 0; i < data.results.length; i++) {
+
+
+                document.getElementById('hasil').innerHTML += "<tr><td>" + data.results[i].created + "</td></tr>";
+
+            }
+
+
+        }
+
+        function hasil_10() {
+            $("#jenis").empty();
+            $("#hasil").empty();
+            document.getElementById('jenis').innerHTML += "<tr><th>Edited</th></tr>";
+            for (var i = 0; i < data.results.length; i++) {
+
+                document.getElementById('hasil').innerHTML += "<tr><td>" + data.results[i].edited + "</td></tr>";
+
+            }
+
+
+        }
+    </script>
+</body>
+
+</html>
